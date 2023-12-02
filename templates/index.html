@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>Formulario de Datos</title>
+</head>
+<body class="bg-gray-100 p-8">
+
+<div class="max-w-lg mx-auto bg-white p-6 rounded-md shadow-md">
+    <h1 class="text-2xl font-semibold mb-4 text-center">Formulario de Datos</h1>
+    <form action="/predict" method="post" class="space-y-4">
+        <div>
+            <label for="edad" class="block text-gray-700 font-semibold mb-2">Edad:</label>
+            <input type="text" id="edad" name="edad" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div>
+            <label for="sexo" class="block text-gray-700 font-semibold mb-2">Sexo:</label>
+            <select id="sexo" name="sexo" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+                <option value="1">Hombre</option>
+                <option value="0">Mujer</option>
+            </select>
+        </div>
+
+        <div>
+          <label for="fuma" class="block text-gray-700 font-semibold mb-2">¿Fuma?:</label>
+          <select id="fuma" name="fuma" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+              <option value="1">Sí</option>
+              <option value="0">No</option>
+          </select>
+        </div>
+      
+        <div>
+          <label for="diabetes" class="block text-gray-700 font-semibold mb-2">Diabetes:</label>
+          <select id="diabetes" name="diabetes" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+              <option value="1">Sí</option>
+              <option value="0">No</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="anaemia" class="block text-gray-700 font-semibold mb-2">Presion cardiaca alta:</label>
+          <select id="anaemia" name="anaemia" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+              <option value="1">Sí</option>
+              <option value="0">No</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="anaemia" class="block text-gray-700 font-semibold mb-2">Anemia:</label>
+          <select id="anaemia" name="anaemia" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+              <option value="1">Sí</option>
+              <option value="0">No</option>
+          </select>
+        </div>
+
+        <div>
+            <label for="creatinine_phosphokinase" class="block text-gray-700 font-semibold mb-2">Creatina-fosfocinasa:</label>
+            <input type="text" id="creatinine_phosphokinase" name="creatinine_phosphokinase" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div>
+          <label for="creatinine_phosphokinase" class="block text-gray-700 font-semibold mb-2">Fracción de eyección:</label>
+          <input type="text" id="creatinine_phosphokinase" name="creatinine_phosphokinase" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div>
+          <label for="creatinine_phosphokinase" class="block text-gray-700 font-semibold mb-2">Plaqueta:</label>
+          <input type="text" id="creatinine_phosphokinase" name="creatinine_phosphokinase" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+        
+        <div>
+          <label for="creatinine_phosphokinase" class="block text-gray-700 font-semibold mb-2">Creatinina:</label>
+          <input type="text" id="creatinine_phosphokinase" name="creatinine_phosphokinase" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+        
+        <div>
+          <label for="creatinine_phosphokinase" class="block text-gray-700 font-semibold mb-2">Sodio en la sangre:</label>
+          <input type="text" id="creatinine_phosphokinase" name="creatinine_phosphokinase" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+ 
+        <div>
+            <button type="submit" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue">Enviar</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
