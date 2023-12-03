@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, jsonify
-# import joblib
-# import numpy as np
+import joblib
+import numpy as np
+
 
 app = Flask(__name__)
 
-# # Cargar el modelo entrenado al iniciar la aplicación
-# modelo_entrenado = joblib.load('model_ML/modelo_entrenado.joblib')
+# Cargar el modelo entrenado al iniciar la aplicación
+modelo_entrenado = joblib.load('modelo_entrenado.joblib')
 
 @app.route('/')
 def index():
@@ -26,16 +27,31 @@ def predict():
         plaqueta = request.form['plaqueta']
         creatinina = request.form['creatinina']
         sodio = request.form['sodio']
+        tiempo = request.form['tiempo']
 
         # Realizar predicción con el modelo
         # (Asegúrate de preprocesar los datos de entrada de la misma manera que durante el entrenamiento)
-        datos_entrada = np.array([[edad, sexo, fuma, diabetes, presion, anemia, creatina, fraccion, plaqueta, creatinina, sodio]])  # Ajusta esta línea según tu necesidad
+        datos_entrada = np.array([[
+            edad,
+            anemia,
+            creatina,
+            diabetes,
+            fraccion,
+            presion,
+            plaqueta,
+            creatinina,
+            sodio,
+            sexo,
+            fuma,
+            tiempo, 
+        ]])
+
+        # Ajusta esta línea según tu necesidad
         resultado_prediccion = modelo_entrenado.predict(datos_entrada)
         resultado_prediccion = np.argmax(resultado_prediccion, axis=1)
 
         # Puedes devolver el resultado como JSON
         return jsonify({'resultado_prediccion': resultado_prediccion.tolist()})
-    # return '<h1 style="font-family: Arial, sans-serif;text-align: center; margin: 50px;">HOLA MAMI</h1>'
 
 if __name__ == '__main__':
     app.run(debug=True)
