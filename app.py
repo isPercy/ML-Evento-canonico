@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import joblib
 import numpy as np
-
+from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
 
@@ -22,19 +22,19 @@ def predict():
         diabetes = request.form['diabetes']
         presion = request.form['presion']
         anemia = request.form['anemia']
-        creatina = request.form['creatina']
+        creatinaf = request.form['creatinaf']
         fraccion = request.form['fraccion']
         plaqueta = request.form['plaqueta']
         creatinina = request.form['creatinina']
         sodio = request.form['sodio']
         tiempo = request.form['tiempo']
-
+        
         # Realizar predicción con el modelo
         # (Asegúrate de preprocesar los datos de entrada de la misma manera que durante el entrenamiento)
         datos_entrada = np.array([[
             edad,
             anemia,
-            creatina,
+            creatinaf,
             diabetes,
             fraccion,
             presion,
@@ -48,7 +48,7 @@ def predict():
 
         # Ajusta esta línea según tu necesidad
         resultado_prediccion = modelo_entrenado.predict(datos_entrada)
-        resultado_prediccion = np.argmax(resultado_prediccion, axis=1)
+        resultado_prediccion = (resultado_prediccion > 0.5).astype(int)
 
         # Puedes devolver el resultado como JSON
         return jsonify({'resultado_prediccion': resultado_prediccion.tolist()})
